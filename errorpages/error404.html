@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>404 Page Error</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../styles/animate.css">
+<style type="text/css">
+	body {
+		/*background: url('../backgrounds/1.jpg');
+		width: 100%;
+		margin: 0 auto;
+		background-attachment: fixed;
+		background-size: cover;
+		background-repeat: no-repeat;
+		//background-position: left top 300px;
+		background-color: #d7d7d7;*/
+		background: -webkit-radial-gradient(#10527B 50%, #10325E);
+		background-repeat: no-repeat;
+		background-size: 100% 990px;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.container {
+		max-width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		background: rgba(255, 255, 255, 0.6); /*#f5f5f5;*/
+		border-radius: 3px;
+		padding: 20px;
+		margin-top: 100px;
+		box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+	}
+	.item-header {
+		font-family: helvetica;
+		font-size: 3em;
+		text-align: center;
+		color: #10527B;
+	}
+	.title {
+		font-family: helvetica;
+		font-size: 11em;
+		text-align: center;
+		color: #46b8da;
+	}
+	.message {
+		font-family: helvetica;
+		font-size: 1em;
+		text-align: center;
+		color: #10527B;
+		font-weight: bolder;
+	}
+	.btn {
+		position: relative;
+		left: 320px;
+		max-width: 100%;
+		width: 150px;
+		background: #46b8da;
+		color: #fff;
+		border: none;
+		padding: 15px;
+		font-family: helvetica;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 25px;
+		margin-bottom: 15px;
+		/*margin-left: 340px;*/
+		cursor: pointer;
+		box-shadow: 1px 1px 5px  rgba(0, 0, 0, 0.5);
+	}
+	.btn:hover {
+		background: #10527B; /*#b8a9c9;*/
+		color: #eee;
+
+	}
+	.btn:active {
+		background: #10325E;
+		color: #b8a9c9;
+	}
+	@media all and (max-width: 750px) { /*@media all and (max-width: 496px) {*/
+		.btn {
+			left: 250px;
+		}
+	}
+	@media all and (max-width: 496px) { /*@media all and (max-width: 496px) {*/
+		.btn {
+			left: 150px;
+		}
+	}
+	@media all and (max-width: 360px) {
+		.btn {
+			left: 60px;
+		}
+		.title {
+			font-size: 6em;
+		}
+		.title > img {
+			max-width: 38%;
+		}
+		.item-header {
+			font-size: 2em;
+		}
+	}
+</style>
+<script type="text/javascript">
+	function goBack() {
+		window.location.href="../"
+	}
+</script>
+</head>
+<body>
+<!-- <h3>Error 404</h3> -->
+	<div class="container">
+		<div class="title">4<img src="404sign.png" class="animated rubberBand" />4</div>
+		<div class="item-header">SORRY!</div>
+		<div class="message">
+			<!-- An Error occured processing your request. -->
+			<!-- <br>The page you are looking for maybe expired or removed. Please try again later. -->
+			<br>The page you are looking for cannot be found.
+		</div>
+		<button class="btn" onclick="goBack()">GO HOME</button>
+	</div>
+</body>
+</html>

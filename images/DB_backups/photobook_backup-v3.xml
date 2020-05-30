@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.3.11
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Jan 25, 2018 at 02:47 AM
+- Server version: 5.6.24
+- PHP Version: 5.6.8
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="photobook" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="comments">
+                CREATE TABLE `comments` (
+                  `user_id` int(11) NOT NULL,
+                  `media_id` int(11) NOT NULL,
+                  `comment` text NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  UNIQUE KEY `created` (`created`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="followers">
+                CREATE TABLE `followers` (
+                  `follower_id` int(11) NOT NULL,
+                  `followed_id` varchar(55) NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `modified` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+                  UNIQUE KEY `created` (`created`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="likes">
+                CREATE TABLE `likes` (
+                  `user_id` int(11) NOT NULL,
+                  `media_id` int(11) NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  UNIQUE KEY `created` (`created`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="messages">
+                CREATE TABLE `messages` (
+                  `receipient_id` int(11) NOT NULL,
+                  `sender_id` int(11) NOT NULL,
+                  `message` text NOT NULL,
+                  `status` int(1) NOT NULL DEFAULT '0',
+                  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  UNIQUE KEY `created` (`created`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="thumbnails">
+                CREATE TABLE `thumbnails` (
+                  `profile_id` int(11) NOT NULL,
+                  `profile_url` varchar(100) NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `modified` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`profile_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `firstname` varchar(55) NOT NULL,
+                  `lastname` varchar(55) NOT NULL,
+                  `username` varchar(55) DEFAULT NULL,
+                  `email` varchar(55) NOT NULL,
+                  `password` varchar(60) NOT NULL,
+                  `active` tinyint(1) NOT NULL DEFAULT '0',
+                  `description` text,
+                  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `modified` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="wallposts">
+                CREATE TABLE `wallposts` (
+                  `media_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `user_id` int(11) NOT NULL,
+                  `urlpath` varchar(255) NOT NULL,
+                  `media_title` varchar(55) DEFAULT NULL,
+                  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`media_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'photobook'
+    -->
+    <database name="photobook">
+        <!-- Table comments -->
+        <table name="comments">
+            <column name="user_id">1</column>
+            <column name="media_id">1</column>
+            <column name="comment">WoW looks so great!! [Emoji108]</column>
+            <column name="created">2018-01-22 04:27:01</column>
+        </table>
+        <table name="comments">
+            <column name="user_id">2</column>
+            <column name="media_id">1</column>
+            <column name="comment">You got mad skills, nice one! [Emoji106]</column>
+            <column name="created">2018-01-23 18:57:29</column>
+        </table>
+        <table name="comments">
+            <column name="user_id">1</column>
+            <column name="media_id">3</column>
+            <column name="comment">Felling hungry alrealy... [Emoji13]</column>
+            <column name="created">2018-01-23 23:11:30</column>
+        </table>
+        <!-- Table followers -->
+        <table name="followers">
+            <column name="follower_id">2</column>
+            <column name="followed_id">1</column>
+            <column name="created">2018-01-23 18:48:41</column>
+            <column name="modified">2018-01-23 15:23:48</column>
+        </table>
+        <table name="followers">
+            <column name="follower_id">1</column>
+            <column name="followed_id">2</column>
+            <column name="created">2018-01-23 23:11:51</column>
+            <column name="modified">NULL</column>
+        </table>
+        <!-- Table likes -->
+        <table name="likes">
+            <column name="user_id">1</column>
+            <column name="media_id">1</column>
+            <column name="created">2018-01-22 04:56:00</column>
+        </table>
+        <table name="likes">
+            <column name="user_id">2</column>
+            <column name="media_id">1</column>
+            <column name="created">2018-01-23 20:46:41</column>
+        </table>
+        <table name="likes">
+            <column name="user_id">1</column>
+            <column name="media_id">3</column>
+            <column name="created">2018-01-23 23:10:39</column>
+        </table>
+        <!-- Table messages -->
+        <table name="messages">
+            <column name="receipient_id">1</column>
+            <column name="sender_id">2</column>
+            <column name="message">Hello there</column>
+            <column name="status">0</column>
+            <column name="created">2018-01-25 02:55:23</column>
+        </table>
+        <!-- Table thumbnails -->
+        <table name="thumbnails">
+            <column name="profile_id">1</column>
+            <column name="profile_url">IMG_20180123_15410.jpg</column>
+            <column name="created">2018-01-20 01:30:58</column>
+            <column name="modified">2018-01-23 03:48:34</column>
+        </table>
+        <table name="thumbnails">
+            <column name="profile_id">2</column>
+            <column name="profile_url">IMG_20180123_9800.jpg</column>
+            <column name="created">2018-01-23 03:55:08</column>
+            <column name="modified">2018-01-23 03:58:15</column>
+        </table>
+        <table name="thumbnails">
+            <column name="profile_id">3</column>
+            <column name="profile_url">avatar.png</column>
+            <column name="created">2018-01-24 18:41:04</column>
+            <column name="modified">NULL</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="id">1</column>
+            <column name="firstname">Lucky</column>
+            <column name="lastname">Molefe</column>
+            <column name="username">luckmolf</column>
+            <column name="email">luckmolf@company.com</column>
+            <column name="password">771669382ce0300b963293ddabd9aef9e8e36c6b</column>
+            <column name="active">1</column>
+            <column name="description">Software junky!!</column>
+            <column name="created">2018-01-20 01:30:58</column>
+            <column name="modified">2018-01-20 22:39:37</column>
+        </table>
+        <table name="users">
+            <column name="id">2</column>
+            <column name="firstname">Jason</column>
+            <column name="lastname">Smith</column>
+            <column name="username">jasonsmith</column>
+            <column name="email">jason@company.com</column>
+            <column name="password">90debaf40a073d5420c1fda06987911fb6e257b8</column>
+            <column name="active">1</column>
+            <column name="description">NULL</column>
+            <column name="created">2018-01-23 03:55:08</column>
+            <column name="modified">2018-01-23 03:59:17</column>
+        </table>
+        <table name="users">
+            <column name="id">3</column>
+            <column name="firstname">Christoper</column>
+            <column name="lastname">Laudon</column>
+            <column name="username">chrislaudon</column>
+            <column name="email">chris@company.com</column>
+            <column name="password">1a4a233c0695721195b6bc5f01b2a9cd03535a83</column>
+            <column name="active">1</column>
+            <column name="description">something about me here.</column>
+            <column name="created">2018-01-24 18:41:03</column>
+            <column name="modified">2018-01-24 18:43:48</column>
+        </table>
+        <!-- Table wallposts -->
+        <table name="wallposts">
+            <column name="media_id">1</column>
+            <column name="user_id">1</column>
+            <column name="urlpath">IMG_20180122_19449.jpg</column>
+            <column name="media_title">Check some of my awesomeness design.</column>
+            <column name="created">2018-01-21 20:13:13</column>
+        </table>
+        <table name="wallposts">
+            <column name="media_id">2</column>
+            <column name="user_id">1</column>
+            <column name="urlpath">IMG_20180123_3459.jpg</column>
+            <column name="media_title">One great apple piece there!</column>
+            <column name="created">2018-01-22 16:15:33</column>
+        </table>
+        <table name="wallposts">
+            <column name="media_id">3</column>
+            <column name="user_id">2</column>
+            <column name="urlpath">IMG_20180123_10568.jpg</column>
+            <column name="media_title">Good breakfast with delicious pizza slice</column>
+            <column name="created">2018-01-23 20:42:30</column>
+        </table>
+    </database>
+</pma_xml_export>

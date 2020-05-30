@@ -1,0 +1,1 @@
+<?php require_once('error404.html'); header('HTTP/1.1 404 Not Found');; ?>

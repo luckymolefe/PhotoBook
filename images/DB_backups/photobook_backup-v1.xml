@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.3.11
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Jan 19, 2018 at 01:57 AM
+- Server version: 5.6.24
+- PHP Version: 5.6.8
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="photobook" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="comments">
+                CREATE TABLE `comments` (
+                  `user_id` int(11) NOT NULL,
+                  `media_id` int(11) NOT NULL,
+                  `comment` text NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  UNIQUE KEY `created` (`created`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="followers">
+                CREATE TABLE `followers` (
+                  `user_id` int(11) NOT NULL,
+                  `followed` varchar(55) NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `modified` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+                  UNIQUE KEY `created` (`created`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="likes">
+                CREATE TABLE `likes` (
+                  `user_id` int(11) NOT NULL,
+                  `media_id` int(11) NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  UNIQUE KEY `created` (`created`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="mediapost">
+                CREATE TABLE `mediapost` (
+                  `media_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `user_id` int(11) NOT NULL,
+                  `urlpath` varchar(255) NOT NULL,
+                  `created` datetime NOT NULL,
+                  PRIMARY KEY (`media_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="thumbnails">
+                CREATE TABLE `thumbnails` (
+                  `profile_id` int(11) NOT NULL,
+                  `profile_url` varchar(100) NOT NULL,
+                  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `modified` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `firstname` varchar(55) NOT NULL,
+                  `lastname` varchar(55) NOT NULL,
+                  `username` varchar(55) DEFAULT NULL,
+                  `email` varchar(55) NOT NULL,
+                  `password` varchar(60) NOT NULL,
+                  `active` tinyint(1) NOT NULL DEFAULT '0',
+                  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `modified` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'photobook'
+    -->
+    <database name="photobook">
+        <!-- Table comments -->
+        <!-- Table followers -->
+        <!-- Table likes -->
+        <!-- Table mediapost -->
+        <!-- Table thumbnails -->
+        <!-- Table users -->
+    </database>
+</pma_xml_export>

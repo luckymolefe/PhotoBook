@@ -1,0 +1,13 @@
+Options -indexes
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+#this below statements redirects page to error pages if page does not exists
+#ErrorDocument 404 http://localhost/photobook/errorpages/
+
+RewriteRule ^home([a-z]+)?$   index.php [NC,L]
+RewriteRule ^login([a-z]+)?$   login.php [NC,L]
+RewriteRule ^signout/([a-z]+)?$   controller.php?signout=$1 [NC,L]
+RewriteRule ^(.*/([a-zA-Z0-9]+)|([a-zA-Z0-9]+))$ profile.php?profile=$1 [L]
