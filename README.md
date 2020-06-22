@@ -2,16 +2,16 @@
 
 
 
-
-
 ## `what it does`
-
+- Photobook is social media application for sharing experience, emotions and memories through photos.
 
 ## `Built With`
 
-- 
-- 
-- 
+- PHP
+- MYSQL
+- HTML5
+- CSS3
+- JAVASCRIPT
 
 
 ## `Screenshot`
