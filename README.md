@@ -1,8 +1,5 @@
 # `PhotoBook`
 
-
-
-## `what it does`
 - Photobook is social media application for sharing experience, emotions and memories through photos.
 
 ## `Built With`
