@@ -1,4 +1,5 @@
 # `PhotoBook`
+Web Application
 
 - __Photobook is social media application for sharing experience, emotions and memories through photos.__
 
